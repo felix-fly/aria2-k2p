@@ -12,11 +12,11 @@ self.__precacheManifest = [
     "url": "flags/cn.svg"
   },
   {
-    "revision": "50f7c669ebdda17e4bbe",
+    "revision": "2e781ad5fba46f1b4a35",
     "url": "app.js"
   },
   {
-    "revision": "50f7c669ebdda17e4bbe",
+    "revision": "2e781ad5fba46f1b4a35",
     "url": "app.css"
   }
 ];
