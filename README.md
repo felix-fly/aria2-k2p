@@ -57,7 +57,7 @@ padavan系统文件系统是构建在内存中的，重启后软件及配置会�
 
 由于aria2及webui程序比较大，提交保存操作需要一定的时间，点过提交后请耐心等待1分钟，以确保写入成功。
 
-如果一切顺利，重启路由器后打开http://my.router/aria2就会看到它了。Good luck!
+如果一切顺利，重启路由器后打开 [http://my.router/aria2/index.html](http://my.router/aria2/index.html) 就会看到它了。Good luck!
 
 k2p默认情况下是没有usb不能挂硬盘的，这时需要在webui中设置下载文件保存路径到局域网中的某个文件服务，比如
 
