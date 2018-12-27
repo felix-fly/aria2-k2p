@@ -4,6 +4,8 @@
 
 hanwckf/rt-n56u库里本身是包含aria2工具的，但是不知道是什么原因k2p的固件并未包含，自己修改了配置文件编译后还是没有。于是就准备来个手动挡的，所以有了下文。
 
+ps：文末有福利哦～～
+
 ## 重要提示：
 
 手动安装aria2，需要自行编译路由器固件，增大storage分区的大小，可以先fork一下[https://github.com/hanwckf/rt-n56u](https://github.com/hanwckf/rt-n56u)，然后根据自己的需要修改配置文件，目前使用的是自编译的K2P_DRV，如果有需要可以在我的repositories里找[rt-n56u](https://github.com/felix-fly/rt-n56u)。
@@ -16,11 +18,30 @@ hanwckf/rt-n56u库里本身是包含aria2工具的，但是不知道是什么原
 由于k2p本身并没有usb接口，不支持挂载硬盘，所以aria2下载需要额外的网络文件存储服务，本文用的是nfs，由局域网中另外一台设备提供。编译固件时需要修改内核编译参数，启用nfs：
 
 ```
-# 修改文件 trunk/configs/boards/K2P/kernel-3.4.x.config
+# trunk/configs/boards/K2P/kernel-3.4.x.config
 
 CONFIG_NETWORK_FILESYSTEMS=y
 CONFIG_NFS_FS=m
-CONFIG_NFS_V4=y
+CONFIG_NFS_V3=y
+# CONFIG_NFS_V3_ACL is not set
+# CONFIG_NFS_V4 is not set
+# CONFIG_NFSD is not set
+CONFIG_LOCKD=m
+CONFIG_LOCKD_V4=y
+CONFIG_NFS_COMMON=y
+CONFIG_SUNRPC=m
+# CONFIG_SUNRPC_DEBUG is not set
+# CONFIG_CEPH_FS is not set
+# CONFIG_CIFS is not set
+# CONFIG_NCP_FS is not set
+# CONFIG_CODA_FS is not set
+# CONFIG_AFS_FS is not set
+```
+
+```
+# configs/templates/K2P_DRV.config
+
+CONFIG_FIRMWARE_INCLUDE_NFSC=y
 ```
 
 ## 获取最新版本的aria2及webui
@@ -82,3 +103,9 @@ k2p默认情况下是没有usb不能挂硬盘的，这时需要在webui中修改
 
 2018-12-25
 * 初版 & 优化了webui的体积
+
+## 福利发放中，点击领取
+
+不方便编译固件的小伙伴可以领取k2p纯净版padavan固件一枚，开启了nfs客户端支持，固件为自用，并不提供技术支持哦。
+
+固件在这里 [https://github.com/felix-fly/rt-n56u/releases](https://github.com/felix-fly/rt-n56u/releases)
